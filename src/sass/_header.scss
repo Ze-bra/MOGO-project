@@ -1,0 +1,231 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.header__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+
+    @media (max-width: 767px) {
+        & {
+            height: 56px;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        & {
+            height: 68px;
+        }
+    }
+
+    .header__logo {
+        z-index: 10;
+
+        img {
+            height: 26px;
+
+            @media (max-width: 767px) {
+                & {
+                    height: 15px;
+                }
+            }
+
+            @media (min-width: 768px) and (max-width: 1024px) {
+                & {
+                    height: 18px;
+                }
+            }
+        }
+    }
+
+    //-------------------
+    .header__nav {
+        width: 56%;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            & {
+                width: 55%;
+            }
+        }
+
+        #header-navigation__switch {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+
+            &:checked~.menu__btn>span {
+                transform: rotate(45deg);
+            }
+
+            &:checked~.menu__btn>span::before {
+                top: 0;
+                transform: rotate(0);
+            }
+
+            &:checked~.menu__btn>span::after {
+                top: 0;
+                transform: rotate(90deg);
+            }
+
+            &:checked~.navigation__list {
+                visibility: visible;
+                left: 0;
+            }
+        }
+
+        .menu__btn {
+            display: none;
+
+            @media (max-width: 767px) {
+                & {
+                    display: flex;
+                    align-items: center;
+                    position: fixed;
+                    @include size-hw(18px, 24px);
+                    top: 18px;
+                    right: 35px;
+                    z-index: 10;
+                }
+            }
+
+            span,
+            span::before,
+            span::after {
+                display: block;
+                position: absolute;
+                @include size-hw(2px, 100%);
+                background-color: #FFFFFF;
+                transition-duration: .25s;
+            }
+
+            span::before {
+                content: "";
+                top: -8px;
+            }
+
+            span::after {
+                content: "";
+                top: 8px;
+            }
+        }
+
+        //-----------------
+        .navigation__list {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+
+            @media (max-width: 767px) {
+                & {
+                    position: fixed;
+                    visibility: hidden;
+                    flex-direction: column;
+                    top: 0;
+                    left: 0;
+                    @include size-hw(578px, 100%);
+                    margin: 0;
+                    padding: 84px 0 0 0;
+                    text-align: center;
+                    //transition-duration: 0.2s;
+                    background: linear-gradient(rgba(233, 130, 131, 0.9) 0%, rgba(237, 215, 137, 0.9) 100%),
+                        url(../img/Rectangle\ 2.png);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position-x: center;
+                }
+            }
+
+            .navigation__list-nav {
+                display: inline-block;
+                text-align: center;
+                position: relative;
+                width: 20%;
+
+                @media (max-width: 767px) {
+                    & {
+                        width: 100%;
+                        @include limit(23px, 23px); //------------
+                        @include limit-lr(20px, 20px); //------------
+                    }
+                }
+
+                .nav {
+                    @include size-p(14px, 16px);
+                    font-family: Raleway;
+                    font-weight: 600;
+                    color: #FFFFFF;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    text-align: center;
+                    position: relative;
+
+                    &:hover,
+                    &:active {
+                        color: #F4BF87;
+                        transition: all 0.7s;
+
+                        &::after {
+                            content: "";
+                            display: block;
+                            position: absolute;
+                            width: 150%;
+                            height: 3px;
+                            top: 120%;
+                            left: -25%;
+                            background-color: #F4BF87;
+                            transition: all 0.7s;
+
+                            @media (max-width: 767px) {
+                                & {
+                                    display: none;
+                                    @include size-p(13px, 15px);
+                                }
+                            }
+                        }
+                    }
+
+                    @media (min-width: 768px) and (max-width: 1024px) {
+                        & {
+                            @include size-p(13px, 15px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //------------------------------
+
+    .header__search {
+        display: flex;
+        flex-direction: row;
+
+        @media (max-width: 767px) {
+            & {
+                display: none;
+            }
+        }
+
+        .registration {
+            @include limit-lr(0, 40px);
+
+            @media (min-width: 768px) and (max-width: 1024px) {
+                & {
+                    @include limit-lr(0, 25px);
+                }
+            }
+        }
+    }
+}

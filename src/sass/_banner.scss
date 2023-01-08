@@ -1,0 +1,147 @@
+.banner {
+    background: linear-gradient(rgba(233, 130, 131, 0.9) 0%, rgba(237, 215, 137, 0.9) 100%),
+        url(../img/Rectangle\ 2.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+}
+
+.banner__wrapper-body {
+    @include limit(177px, 201px);
+
+    @media (max-width: 767px) {
+        & {
+            @include limit(90px, 96px);
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        & {
+            @include limit(120px, 136px);
+        }
+    }
+
+    h3 {
+        @include size-p(64px, 80px);
+        color: #FFFFFF;
+        font-family: Kaushan Script;
+        font-weight: 400;
+        text-align: center;
+
+        @media (max-width: 767px) {
+            & {
+                @include size-p(36px, 54px);
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            & {
+                @include size-p(48px, 54px);
+            }
+        }
+    }
+
+    h1 {
+        @include size-p(144px, 175px);
+        @include limit(20px, 0);
+        color: #FFFFFF;
+        font-family: Montserrat;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+
+        &::after {
+            content: "";
+            display: block;
+            width: 170px;
+            height: 0;
+            border: 2px solid #FFFFFF;
+            margin: 44px auto 0;
+            text-align: center;
+        }
+
+        @media (max-width: 767px) {
+            & {
+                @include size-p(48px, 58px);
+                @include limit(47px, 0);
+
+                &::after {
+                    width: 135px;
+                    margin: 67px auto 0;
+                }
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            & {
+                @include size-p(96px, 117px);
+                @include limit(16px, 0);
+
+                &::after {
+                    width: 115px;
+                    margin: 30px auto 0;
+                }
+            }
+        }
+    }
+
+    form {
+        width: 100%;
+        max-width: 370px;
+        margin: 72px auto 0;
+        text-align: center;
+        border: 4px solid #FFFFFF;
+
+        @media (max-width: 767px) {
+            & {
+                max-width: 100%;
+                margin: 50px auto 0;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            & {
+                max-width: 317px;
+                margin: 50px auto 0;
+            }
+        }
+
+        &:hover {
+            background: #FFFFFF;
+            transition: all 0.7s;
+        }
+
+        &:active {
+            background: #FFFFFF;
+            border: 4px solid #E4BE8D;
+            transition: all 0.7s;
+        }
+
+        &:hover>button,
+        &:active>button {
+            color: #E4BE8D;
+        }
+
+        button {
+            @include size-p(24px, 72px);
+            font-family: Raleway;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-decoration: none;
+            background: none;
+            text-transform: uppercase;
+
+            @media (max-width: 767px) {
+                & {
+                    @include size-p(18px, 46px);
+                }
+            }
+
+            @media (min-width: 768px) and (max-width: 1024px) {
+                & {
+                    @include size-p(18px, 46px);
+                }
+            }
+        }
+    }
+}

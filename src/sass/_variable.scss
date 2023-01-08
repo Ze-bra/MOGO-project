@@ -1,0 +1,211 @@
+//-------отступ контента в теле блока--------
+@mixin limit($pt, $pb) {
+    padding-top: $pt;
+    padding-bottom: $pb;
+}
+
+@mixin limit-lr($pl, $pr) {
+    padding-left: $pl;
+    padding-right: $pr;
+}
+
+//---------высота текста-----------
+@mixin size-p($s, $lh) {
+    font-size: $s;
+    line-height: $lh;
+}
+
+//----------- размер объекта-------------
+@mixin size-hw($h, $w) {
+    height: $h;
+    width: $w;
+}
+
+//@include
+
+//----------кнопка----------------
+
+//@extend %
+
+//-------------размер картинки----------
+@mixin size-img($iw, $ih) {
+    width: $iw;
+    height: $ih;
+}
+
+//-------------------------------------
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+:focus,
+:active {
+    outline: none;
+}
+
+a:focus,
+a:active {
+    outline: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+
+}
+
+input {
+    display: none;
+}
+
+a,
+a:visited,
+a:hover {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+//----------------------p-----------------
+p {
+    font-family: Raleway;
+    font-weight: 400;
+    text-align: center;
+    @include size-p(18px, 21px);
+
+    @media (max-width: 767px) {
+        & {
+            @include size-p(14px, 16px);
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        & {
+            @include size-p(14px, 16px);
+        }
+    }
+}
+
+//--------------------------.container--------------------
+.container {
+    padding: 0 15px 0 15px;
+    //border: 1px solid red;
+
+    @media (max-width: 767px) {
+        & {
+            padding: 0 20px 0 20px;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        & {
+            padding: 0 20px 0 20px;
+        }
+    }
+}
+
+//--------------------------.wrapper-------------------
+.wrapper {
+    max-width: 1170px;
+    width: 100%;
+    margin: 0 auto;
+    //border: 1px dashed red;
+
+    @media (max-width: 767px) {
+        & {
+            max-width: 288px;
+            width: 100%;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1024px) {
+        & {
+            max-width: 992px;
+            width: 100%;
+        }
+    }
+}
+
+//----------------------------------------
+
+.box__section {
+
+    .subtitle {
+        @include size-p(30px, 80px);
+        color: #2D3033;
+        font-family: Kaushan Script;
+        font-weight: 400;
+        text-align: center;
+
+        @media (max-width: 767px) {
+            & {
+                @include size-p(24px, 67px);
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            & {
+                @include size-p(24px, 67px);
+            }
+        }
+    }
+
+    .title {
+        @include size-p(36px, 81px);
+        color: #2D3033;
+        font-family: Raleway;
+        font-weight: 900;
+        text-align: center;
+        text-transform: uppercase;
+
+        @media (max-width: 767px) {
+            & {
+                @include size-p(24px, 68px);
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            & {
+                @include size-p(24px, 68px);
+            }
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            width: 170px;
+            height: 0;
+            border: 2px solid #F38281;
+            margin: 24px auto 0;
+            text-align: center;
+
+            @media (max-width: 767px) {
+                & {
+                    width: 134px;
+                    width: 148px;
+                        margin: 20px auto 0;
+                }
+            }
+
+            @media (min-width: 768px) and (max-width: 1024px) {
+                & {
+                    width: 148px;
+                    margin: 20px auto 0;
+                }
+            }
+        }
+    }
+}

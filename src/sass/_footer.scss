@@ -1,0 +1,121 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.footer__wrapper-body {
+    display: flex;
+    justify-content: space-between;
+
+    .body-foot {
+        display: block;
+        width: 23%;
+        padding: 20px 0;
+        font-family: Raleway;
+        font-weight: 500;
+        text-transform: uppercase;
+        @include size-p(18px, 21px);
+        position: relative;
+
+        &:hover,
+        &:active {
+            transition: all 0.7s;
+            transform: translate(-10px, -10px);
+
+            @media (max-width: 767px) {
+                & {
+                    background: transparent;
+                    transform: translate(-3px, -3px);
+                    transition: all 0.7s;
+                }
+            }
+        }
+
+        &:hover>.navi,
+        &:active>.navi {
+            transition: all 0.7s;
+        }
+
+        &:hover>.navi::after,
+        &:active>.navi::after {
+            transition: all 0.7s;
+        }
+
+        .line {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 0;
+            height: 0;
+            border: 2px solid #F38281;
+            top: 0%;
+            left: 0%;
+            transition: all 0.7s;
+
+            @media (max-width: 767px) {
+                & {
+                    display: block;
+                }
+            }
+        }
+
+        @media (max-width: 767px) {
+            & {
+                @include size-p(14px, 16px);
+                padding: 21px 0;
+                width: 20%;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1024px) {
+            & {
+                @include size-p(14px, 16px);
+                padding: 15px 0;
+            }
+        }
+
+        .navi {
+            color: #F38281;
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 0;
+                height: 0;
+                border: 2px solid #F38281;
+                top: 0%;
+                left: 0%;
+                transition: all 0.7s;
+            }
+
+            @media (max-width: 767px) {
+                & {
+                    display: none;
+                }
+            }
+
+            span {
+                font-weight: 700;
+                @include size-p(36px, 42px);
+                padding-right: 5px;
+
+                @media (max-width: 767px) {
+                    & {
+                        @include size-p(24px, 28px);
+                    }
+                }
+
+                @media (min-width: 768px) and (max-width: 1024px) {
+                    & {
+                        @include size-p(24px, 28px);
+                    }
+                }
+            }
+        }
+    }
+}
